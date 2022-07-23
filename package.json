@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-beautiful-dnd": "^13.1.2"
+    "@types/react-beautiful-dnd": "^13.1.2",
+    "jest-watch-typeahead": "^0.6.5"
   }
 }

@@ -52,12 +52,13 @@ function ViewTask(props: IViewTask) {
                 >
                     Save
                 </Button>
-                <Button onClick={() => {
-                    setIsEdit(false);
-                    setName('');
-                    setDescription('')
-                    props.onHide()
-                }}>
+                <Button data-testid="button"
+                    onClick={() => {
+                        setIsEdit(false);
+                        setName('');
+                        setDescription('')
+                        props.onHide()
+                    }}>
                     Close
                 </Button>
             </Modal.Footer>
