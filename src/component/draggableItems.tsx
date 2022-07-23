@@ -77,7 +77,7 @@ function DraggableItems(props: IDraggableItems) {
         type={type}
         item={viewItem!}
         onHide={() => setModalShow(false)}
-        handleSave={handleEdit}
+        onSave={handleEdit}
       />
     }
 
