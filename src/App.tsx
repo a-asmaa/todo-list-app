@@ -5,7 +5,7 @@ import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import { ColumnsTypes, Item } from './modules/columnTypes';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { columnsTypes } from './modules/Data';
-import Header from './component/header';
+import Header from './component/Header/header';
 import DraggableItems from './component/draggableItems';
 
 
@@ -53,7 +53,6 @@ function App() {
   }
 
   const handleDelete = (key: string, index: number) => {
-    console.log(key, index);
 
     setState(prev => {
       prev = { ...prev }
@@ -93,7 +92,6 @@ function App() {
 
   return (
     <Container className='mt-3' >
-
       <Header handleTaskAdd={handleTaskAdd} />
 
       <div className="col-list">
@@ -122,7 +120,6 @@ function App() {
           }
         </DragDropContext>
       </div>
-
     </Container>
   );
 }

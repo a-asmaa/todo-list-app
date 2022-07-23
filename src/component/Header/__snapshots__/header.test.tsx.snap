@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header Component should match with snapshot 1`] = `
+exports[`Header Header Component should match with snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

@@ -7,3 +7,8 @@ test('renders learn react link', () => {
   const buttonElement = screen.getByText(/Add/i);
   expect(buttonElement).toBeInTheDocument();
 });
+
+
+// it('App should match with snapshot', () => {
+//   expect(render(<App />)).toMatchSnapshot()  // snapshot from component 
+// })

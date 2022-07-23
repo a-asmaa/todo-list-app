@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { Draggable } from 'react-beautiful-dnd'
 import { Form, Stack } from 'react-bootstrap'
 import { Item } from '../modules/columnTypes';
-import ViewTask from './viewTask';
+import { IDraggableItems } from '../modules/DragItemProps';
+import ViewTask from './ViewTask/viewTask';
 
-function DraggableItems(props: { index: number, keyValue: string, handleEdit: any, handleInLineEdit: any, item: Item, handleDelete: any }) {
+function DraggableItems(props: IDraggableItems) {
 
   const { index, handleEdit, handleInLineEdit, item, handleDelete, keyValue } = props;
   const [type, setType] = useState<string>('')
@@ -28,6 +29,7 @@ function DraggableItems(props: { index: number, keyValue: string, handleEdit: an
               {item.isEdit ?
                 <Form.Control className="me-auto"
                   placeholder='task name'
+
                   value={editTask} onChange={e => setEditTask(e.target.value)}
                   onKeyDown={e => {
                     if (e.key === "Enter") {
@@ -42,13 +44,14 @@ function DraggableItems(props: { index: number, keyValue: string, handleEdit: an
               }
               <div>
                 <i role='button' className={`bi m-2 ${item.isEdit ? 'bi-x-lg' : 'bi-pencil-square'}`}
+                  data-testid="edit-btn"
                   onClick={() => {
                     setEditTask(item.name)
                     handleInLineEdit(item, keyValue)
 
                   }} />
 
-                <i role='button' className="bi bi-trash "
+                <i role='button' className="bi bi-trash"
                   onClick={() => handleDelete(keyValue, index)}
                   hidden={item.isEdit} />
               </div>
@@ -56,6 +59,7 @@ function DraggableItems(props: { index: number, keyValue: string, handleEdit: an
             </Stack>
 
             <i role='button' className="bi bi-eye"
+              data-testid="view-btn"
               onClick={() => {
                 setType(keyValue)
                 setViewItem(item)

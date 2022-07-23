@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Form, Modal, Stack } from 'react-bootstrap'
-import { IViewTask } from '../modules/ViewTaskProps';
+import { IViewTask } from '../../modules/ViewTaskProps';
 
 function ViewTask(props: IViewTask) {
 
@@ -12,7 +12,8 @@ function ViewTask(props: IViewTask) {
 
     return (
         <Modal
-            {...props}
+            onHide={props.onHide}
+            show={props.show}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
@@ -20,7 +21,7 @@ function ViewTask(props: IViewTask) {
 
             <Modal.Body>
                 <Stack direction='horizontal' gap={3} className="mb-4 justify-content-between">
-                    <h5> Task Details </h5>
+                    <h5 data-testid="h-modal">Task Details</h5>
                     {!isEdit ?
                         <i role="button" className="bi bi-pencil-square" onClick={() => setIsEdit(!isEdit)} />
                         :
@@ -28,12 +29,12 @@ function ViewTask(props: IViewTask) {
                     }
                 </Stack>
 
-                <Form.Label as={'h6'}>🖊 Task Name </Form.Label>
+                <Form.Label as={'h6'} data-testid="label-name">🖊 Task Name</Form.Label>
                 {!isEdit ? <p className='mx-4 mb-3'> {props.item?.name}  </p>
                     :
                     <Form.Control className="me-auto mb-3 mx-4" defaultValue={props.item?.name} placeholder='task name..' value={name} onChange={e => setName(e.target.value)} />
                 }
-                <Form.Label as={'h6'}> 📃 Description </Form.Label>
+                <Form.Label as={'h6'} data-testid="label-desc">📃 Description</Form.Label>
                 {!isEdit ?
                     <p className='mx-4'> {props.item?.description === "" ? "-" : props.item?.description} </p>
                     :
@@ -44,15 +45,15 @@ function ViewTask(props: IViewTask) {
 
             </Modal.Body>
             <Modal.Footer>
-                <Button hidden={!isEdit}
+                <Button hidden={!isEdit} data-testid="save-btn"
                     onClick={() => {
-                        props.handleSave(props.type, props.item, name, description)
+                        props.onSave(props.type, props.item, name, description)
                         props.onHide()
                     }}
                 >
                     Save
                 </Button>
-                <Button data-testid="button"
+                <Button data-testid="close-btn"
                     onClick={() => {
                         setIsEdit(false);
                         setName('');
