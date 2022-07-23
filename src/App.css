@@ -39,6 +39,10 @@
   background-color: rgb(137, 188, 255);
 }
 
+.form-control{
+  width: 95%
+}
+
 .modal-content{
-  height: 350px;
+  min-height: 350px;
 }

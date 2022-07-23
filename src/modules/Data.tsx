@@ -1,15 +1,15 @@
 import { ColumnsTypes } from "./columnTypes";
 
 export const columnsTypes: ColumnsTypes = {
-    "todo": {
+    todo: {
         title: "📝 Todo",
         items: []
     },
-    "progress": {
+    progress: {
         title: "⌛️ In Progress",
         items: []
     },
-    "done": {
+    done: {
         title: "🏆 Done",
         items: []
     }
